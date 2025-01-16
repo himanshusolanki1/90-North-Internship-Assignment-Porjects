@@ -1,0 +1,6 @@
+{% for message in messages %}
+<div class="message {{ 'sent' if message.sender_id == current_user.id else 'received' }}">
+    <div class="message-content">{{ message.content }}</div>
+    <div class="message-timestamp">{{ message.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</div>
+</div>
+{% endfor %}

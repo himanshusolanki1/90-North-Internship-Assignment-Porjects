@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="chat-container">
+    <div class="sidebar">
+        <div class="user-info">
+            <div class="user-welcome">
+                <div class="user-avatar">{{ current_user.username[0].upper() }}</div>
+                <span class="username">{{ current_user.username }}</span>
+            </div>
+            <a href="{{ url_for('logout') }}" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
+        </div>
+        <div class="users-section">
+            <div class="users-header" id="toggleUsers">
+                <div class="header-content">
+                    <i class="fas fa-comments"></i>
+                    <h3>Messages</h3>
+                    <span class="message-count">{{ users|length }}</span>
+                </div>
+                <span class="toggle-icon">
+                    <i class="fas fa-chevron-down"></i>
+                </span>
+            </div>
+            <div class="users-list" id="usersList">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchUsers" placeholder="Search messages...">
+                </div>
+                {% for user in users %}
+                <div class="user-item" data-user-id="{{ user.id }}">
+                    <div class="user-avatar">{{ user.username[0].upper() }}</div>
+                    <div class="user-details">
+                        <div class="user-name">{{ user.username }}</div>
+                        <div class="user-status">
+                            <span class="status-dot"></span>
+                            Online
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="chat-area">
+        <div id="messages" class="messages">
+            <div class="select-user-prompt">
+                <i class="fas fa-comments prompt-icon"></i>
+                <div class="prompt-text">Select a conversation to start messaging</div>
+            </div>
+        </div>
+        <div class="message-input">
+            <input type="text" id="message-input" placeholder="Type your message..." disabled>
+            <button id="send-button" disabled>
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+{% endblock %}
