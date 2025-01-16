@@ -2,7 +2,7 @@
 
 A modern, real-time chat application built with Flask, SQLAlchemy, and WebSocket. Features a clean, responsive UI with user authentication and instant messaging capabilities.
 
-![Chat Application Screenshot]
+pythonanywhere link =  https://mikey007.pythonanywhere.com/login
 
 ## Features
 
@@ -134,26 +134,7 @@ chat-application/
 - Modern messaging interface
 - Clean and intuitive design
 
-## Development
-
-To contribute to this project:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## Security
-
-- Passwords are hashed using Werkzeug's security functions
-- Protected against CSRF attacks
-- Secure session management
-- SQL injection protection through SQLAlchemy
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
+#
 ## Acknowledgments
 
 - Flask and its extensions developers
